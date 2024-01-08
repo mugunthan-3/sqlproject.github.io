@@ -1,0 +1,37 @@
+create database BLOOD_DONATION;
+SHOW databases;
+USE BLOOD_DONATION;
+show TABLES;
+CREATE table PATIENT(PID INT, PNAME VARCHAR (20), BLOOD_TYPE varchar(20), DISEASE VARCHAR(20), AGE INT, REF_ID, INT, REF_NAME VARCHAR, REFFERALS VARCHAR)
+insert into patient values(1, 'victor', 'b+ve', 'cancer',32, 7369, 'bala',7902 );
+insert into patient values(2, 'parker', 'b+ve', 'cancer', 30,7499, 'mugun',7698);
+insert into patient values(3, 'smith',  'a+ve', 'cholera',28,7521, 'minu',7698);
+insert into patient values(4, 'john',  'b+ve',  'jaundice',35,7566, 'suba', 7839);
+insert into patient values(5, 'mike',  'o+ve',  'chickenpx', 29,7654, 'hari', 7698);
+insert into patient values(6, 'robin' ,'a+ve', 'small pox', 33,7698, 'vivek',7839);
+insert into patient values(7, 'leo',  'ab+ve',  'cholera', 31,7782,'velu',7839);
+insert into patient values(8, 'mugen', 'o+ve',  'cancer',25,7788,'priya',7566);
+insert into patient values(9, 'antony', 'a+ve',  'tuberculosis', 33,7839,'adams',7698);
+insert into patient values(10, 'joseph', 'o+ve', 'jaundice', 40,7844,'jp',7788);
+insert into patient values(11,  'dass', 'ab+ve', 'malaria', 36,7876, 'vino',7698);
+insert into patient values (12, 'lawrence', 'a+ve', 'diptheria', 30,7900,'mani',7566);
+insert into patient values(13, 'amar', 'o+ve', 'malaria', 22,7902,'ragu',7782);
+
+create table Donor(DID int, DNAME varchar(20), BLODD_TYPE varchar(20), LOC varchar(20), pid int,primary key (did),foreign key(pid) references patient(pid));
+drop table donor;
+show tables;
+desc donor;
+alter table donor drop contact;
+insert into donor values(951, 'Mark', 'b+ve', 'BTM' , 1);
+insert into donor values(741, 'joshi', 'a+ve', 'marthahalli',2);
+insert into donor values(456, 'raghu', 'o+ve', 'indiranagar',3);
+insert into donor values (789, 'shree', 'ab+ve', 'koromangala',4)
+insert into donor values (963, 'bala',  'o+ve', 'tavarakeri',5);
+
+create table Blood_camp(CiD int, CAMP varchar(20), ORGANIZER varchar(20),  LOC varchar(20), did int, primary key (cid), foreign key (did) references donor (did));
+DESC BLOOD_CAMP;
+insert into blood_camp values (100, 'LIFE SAVERS UNITED', 'ADITHYA', 'BTM', 456);
+insert into blood_camp values(200, 'RED CROSS HEROS', 'VIGNESH', 'KOROMANGALA', 741);
+insert into blood_camp values(300, 'BLOOD LINE CHAMPIONS', 'JOHNSON', 'INDIRANAGAR',789);
+insert into blood_camp values(400, 'THE DONOR DEFENDERS', 'ASHIF', 'MARTHAHALLI', 951);
+insert into blood_camp values(500, 'THE BLOOD BUNCH', 'RAGHU', 'TAVARAKERI', 963)
